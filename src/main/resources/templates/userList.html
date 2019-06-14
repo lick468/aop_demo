@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<div>
+    <a href="/user/add">添加用户</a>
+</div>
+<table >
+    <thead>
+    <tr>
+        <th>用户编号</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>手机号</th>
+        <th>邮箱</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.phone}"></td>
+        <td th:text="${user.email}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

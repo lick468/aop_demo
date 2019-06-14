@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>操作日志列表</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>日志编号</th>
+        <th>模块标题</th>
+        <th>方法</th>
+        <th>操作人</th>
+        <th>请求链接</th>
+        <th>主机IP</th>
+        <th>请求状态</th>
+        <th>操作系统</th>
+        <th>浏览器</th>
+        <th>操作时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="oper : ${list}">
+        <td th:text="${oper.id}"></td>
+        <td th:text="${oper.title}"></td>
+        <td th:text="${oper.method}"></td>
+        <td th:text="${oper.operator}"></td>
+        <td th:text="${oper.operURL}"></td>
+        <td th:text="${oper.operIP}"></td>
+        <td th:text="${oper.status}"></td>
+        <td th:text="${oper.os}"></td>
+        <td th:text="${oper.browser}"></td>
+        <td th:text="${#dates.format(oper.operTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

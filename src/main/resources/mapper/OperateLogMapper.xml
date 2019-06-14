@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lick.mapper.OperateLogMapper">
+  <resultMap id="OperateLogMap" type="com.lick.domain.OperateLog">
+
+    <id column="id"  property="id" />
+    <result column="title"  property="title" />
+    <result column="method"  property="method" />
+    <result column="oper_name"  property="operator" />
+    <result column="oper_action"  property="operAction" />
+    <result column="oper_url"  property="operURL" />
+    <result column="oper_ip"  property="operIP" />
+    <result column="oper_location"  property="operLocation" />
+    <result column="status"  property="status" />
+    <result column="error_msg"  property="errorMSG" />
+    <result column="oper_time"  property="operTime" />
+    <result column="os"  property="os" />
+    <result column="browser"  property="browser" />
+  </resultMap>
+
+  <select id="findAllOperateLog" resultMap="OperateLogMap">
+    select * from operatelog
+  </select>
+  <insert id="insertOperateLog" parameterType="OperateLog" useGeneratedKeys="true" keyProperty="id">
+    insert into operatelog (title,method,oper_action,oper_name,oper_url,oper_ip,oper_location,status,error_msg,oper_time,os,browser)
+    values
+    (#{title},#{method},#{operAction},#{operator},#{operURL},#{operIP},#{operLocation},#{status},#{errorMSG},#{operTime},#{os},#{browser})
+  </insert>
+
+
+
+</mapper>
